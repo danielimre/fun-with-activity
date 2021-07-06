@@ -18,7 +18,7 @@ public class ExampleIntegrationTest extends IntegrationTestBootstrap {
             .auth().basic("user", "pass")
             .body(asJson(new ExampleController.ExampleRequest("data")))
             .when()
-            .post("/post")
+            .post("/example/post")
             .then()
             .statusCode(HttpStatus.OK.value())
             .contentType(APPLICATION_JSON_VALUE)

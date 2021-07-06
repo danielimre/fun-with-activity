@@ -17,8 +17,13 @@
   <packaging>pom</packaging>
 
   <properties>
-    <artifact.canonicalname>recommendation-service</artifact.canonicalname>
     <java.version>11</java.version>
+    <artifact.canonicalname>recommendation-service</artifact.canonicalname>
+    <!-- ci -->
+    <skip.checkstyle>false</skip.checkstyle>
+    <checkstyle.considered.severity>error</checkstyle.considered.severity>
+    <checkstyle.considered.match>true</checkstyle.considered.match>
+    <!-- dependencies -->
     <azure.version>3.6.0</azure.version>
     <spring-cloud.version>2020.0.3</spring-cloud.version>
     <springdoc-openapi.version>1.5.8</springdoc-openapi.version>
@@ -171,6 +176,42 @@
             </path>
           </annotationProcessorPaths>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>3.1.2</version>
+        <configuration>
+          <configLocation>build/checkstyle.xml</configLocation>
+          <suppressionsFileExpression>checkstyle.suppressions.file</suppressionsFileExpression>
+          <suppressionsLocation>build/checkstyle-suppressions.xml</suppressionsLocation>
+          <propertyExpansion>
+            checkstyle.considered.severity=${checkstyle.considered.severity}
+            checkstyle.considered.match=${checkstyle.considered.match}
+          </propertyExpansion>
+          <consoleOutput>true</consoleOutput>
+          <failOnViolation>true</failOnViolation>
+          <logViolationsToConsole>true</logViolationsToConsole>
+          <includeTestSourceDirectory>true</includeTestSourceDirectory>
+          <includeResources>true</includeResources>
+          <includeTestResources>true</includeTestResources>
+          <skip>${skip.checkstyle}</skip>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>8.39</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <phase>process-test-classes</phase>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
