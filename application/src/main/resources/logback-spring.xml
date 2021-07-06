@@ -8,7 +8,9 @@
   </springProfile>
   <springProfile name="!ci">
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
-      <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
+      <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+        <includeMdcKeyName>request-id</includeMdcKeyName>
+      </encoder>
     </appender>
   </springProfile>
   <root level="info">

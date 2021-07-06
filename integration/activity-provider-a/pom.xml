@@ -13,6 +13,9 @@
   <properties>
   </properties>
   <dependencies>
-
+    <dependency>
+      <groupId>com.expediagroup.molten</groupId>
+      <artifactId>molten-http-client</artifactId>
+    </dependency>
   </dependencies>
 </project>

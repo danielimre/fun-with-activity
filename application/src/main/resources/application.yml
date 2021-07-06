@@ -10,10 +10,6 @@ spring:
     visibility.getter: none
     visibility.setter: none
     visibility.is-getter: none
-  security:
-    user:
-      name: user
-      password: pass
   sleuth:
     enabled: false
     sampler:
@@ -73,6 +69,12 @@ info:
       version: ${java.vm.version}
 
 integration:
+  activityProviderA:
+    client:
+      baseUrl: http://ec2-54-246-224-31.eu-west-1.compute.amazonaws.com:8000/services/
+  activityProviderB:
+    client:
+      baseUrl: http://ec2-54-246-224-31.eu-west-1.compute.amazonaws.com:8000/services/
   processor:
     client:
       baseUrl: http://localhost:8080/
@@ -86,6 +88,12 @@ mock:
   server:
     port: 8080
 integration:
+  activityProviderA:
+    client:
+      baseUrl: http://localhost:${mock.server.port}/activityprovidera/
+  activityProviderB:
+    client:
+      baseUrl: http://localhost:${mock.server.port}/activityproviderb/
   processor:
     client:
       baseUrl: http://localhost:${mock.server.port}/
