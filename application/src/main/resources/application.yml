@@ -71,3 +71,21 @@ info:
       vendor: ${java.vm.vendor}
       name: ${java.vm.name}
       version: ${java.vm.version}
+
+integration:
+  processor:
+    client:
+      baseUrl: http://localhost:8080/
+
+---
+spring:
+  config:
+    activate:
+      on-profile: ci
+mock:
+  server:
+    port: 8080
+integration:
+  processor:
+    client:
+      baseUrl: http://localhost:${mock.server.port}/

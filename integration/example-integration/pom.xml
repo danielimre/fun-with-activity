@@ -4,27 +4,18 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.funwithactivity</groupId>
-    <artifactId>recommendation-service</artifactId>
+    <artifactId>recommendation-service-integration</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>recommendation-service-integration</artifactId>
-  <name>recommendation-service - integration</name>
-
-  <packaging>pom</packaging>
-
+  <groupId>com.funwithactivity.integration</groupId>
+  <artifactId>example-integration</artifactId>
+  <name>recommendation-service - integration - example</name>
   <properties>
   </properties>
-
-  <modules>
-    <module>example-integration</module>
-    <module>activity-provider-a</module>
-    <module>activity-provider-b</module>
-  </modules>
-
   <dependencies>
     <dependency>
-      <groupId>com.funwithactivity</groupId>
-      <artifactId>recommendation-service-domain</artifactId>
+      <groupId>com.expediagroup.molten</groupId>
+      <artifactId>molten-http-client</artifactId>
     </dependency>
   </dependencies>
 </project>

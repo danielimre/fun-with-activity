@@ -15,5 +15,6 @@ public class ServerUnderTestExtension implements Extension, BeforeAllCallback {
         LOG.info("Running tests against localhost:{}", FREE_PORT);
         System.setProperty("server.port", String.valueOf(FREE_PORT));
         System.setProperty("management.server.port", String.valueOf(FREE_PORT));
+        System.setProperty("mock.server.port", String.valueOf(MockWebServer.port()));
     }
 }

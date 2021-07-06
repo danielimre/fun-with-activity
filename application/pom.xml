@@ -18,6 +18,10 @@
     </dependency>
     <dependency>
       <groupId>com.funwithactivity.integration</groupId>
+      <artifactId>example-integration</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.funwithactivity.integration</groupId>
       <artifactId>activity-provider-a</artifactId>
     </dependency>
     <dependency>
@@ -81,10 +85,6 @@
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-registry-prometheus</artifactId>
       <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>net.logstash.logback</groupId>
-      <artifactId>logstash-logback-encoder</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
