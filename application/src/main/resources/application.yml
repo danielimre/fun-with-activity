@@ -16,8 +16,14 @@ spring:
       password: pass
   sleuth:
     enabled: false
+    sampler:
+      probability: 0
+    web:
+      additionalSkipPattern: ^/actuator.*
   zipkin:
     enabled: false
+    service:
+      name: ${spring.application.name}
 
 management:
   endpoints:

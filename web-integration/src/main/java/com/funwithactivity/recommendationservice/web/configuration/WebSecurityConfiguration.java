@@ -1,4 +1,4 @@
-package com.funwithactivity.recommendationservice.configuration;
+package com.funwithactivity.recommendationservice.web.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -11,8 +11,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+            .csrf().disable()
             .authorizeRequests()
-            .antMatchers("/actuator/*", "/api-docs", "/swagger-ui/*", "/v3/*").permitAll()
+            .antMatchers("/", "/actuator/*", "/api-docs", "/swagger-ui/*", "/v3/*").permitAll()
             .anyRequest().authenticated()
             .and()
             .httpBasic();
