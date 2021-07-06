@@ -72,6 +72,10 @@
       <groupId>com.expediagroup.molten</groupId>
       <artifactId>molten-core</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.expediagroup.molten</groupId>
+      <artifactId>molten-metrics</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>io.swagger.core.v3</groupId>

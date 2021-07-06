@@ -11,13 +11,13 @@ spring:
     visibility.setter: none
     visibility.is-getter: none
   sleuth:
-    enabled: false
+    enabled: true
     sampler:
-      probability: 0
+      probability: 1
     web:
       additionalSkipPattern: ^/actuator.*
   zipkin:
-    enabled: false
+    enabled: true
     service:
       name: ${spring.application.name}
 
@@ -41,6 +41,10 @@ management:
       cache:
         time-to-live: 5s
   metrics:
+    tags:
+      application: ${spring.application.name}
+      region: na
+      pod: dev
     distribution:
       percentiles:
         all: 0.5, 0.95, 0.99, 0.999
